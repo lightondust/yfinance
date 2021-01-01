@@ -46,7 +46,7 @@ def get_json(url, proxy=None, timeout=10):
     html = _requests.get(url=url, proxies=proxy, timeout=timeout).text
 
     if "QuoteSummaryStore" not in html:
-        html = _requests.get(url=url, proxies=proxy).text
+        html = _requests.get(url=url, proxies=proxy, timeout=timeout).text
         if "QuoteSummaryStore" not in html:
             return {}
 
