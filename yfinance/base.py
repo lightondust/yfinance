@@ -374,7 +374,10 @@ class TickerBase():
             pass
 
         # get fundamentals
-        data = utils.get_json(url+'/financials', proxy, timeout=self.timeout)
+        # data = utils.get_json(url+'/financials', proxy, timeout=self.timeout)
+        url = "{}/{}/financials".format(self._scrape_url, self.ticker)   # 追加
+        data = utils.get_json(url, proxy, timeout=self.timeout)
+
 
         # generic patterns
         for key in (
